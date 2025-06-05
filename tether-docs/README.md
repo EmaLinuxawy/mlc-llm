@@ -54,7 +54,7 @@ This directory contains comprehensive documentation for the MLC-LLM CI/CD pipeli
 ### CI/CD Pipeline
 
 ```
-test → docker, build-linux, build-windows → release → summary
+test → (docker, build-linux, build-windows) → release → summary
 ```
 
 ### Docker Image Capabilities

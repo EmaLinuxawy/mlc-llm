@@ -94,6 +94,7 @@ on:
 **Purpose**: Build Linux x64 Python wheel
 **Runtime**: ~25-35 minutes
 **Platform**: ubuntu-latest
+**Dependencies**: test
 
 **Build Process:**
 
@@ -117,6 +118,7 @@ on:
 **Purpose**: Build Windows x64 Python wheel
 **Runtime**: ~45-60 minutes
 **Platform**: windows-latest
+**Dependencies**: test
 
 **Build Process:**
 
