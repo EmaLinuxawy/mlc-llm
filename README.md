@@ -2,8 +2,8 @@
 
 > A production-quality CI/CD workflow for building, testing, and deploying MLC-LLM across multiple platforms with automated Docker publishing and cross-platform wheel generation that match with Tether requirements.
 
-[![CI Pipeline](https://github.com/EmaLinuxawy/mlc-llm-tether/actions/workflows/pipeline.yml/badge.svg)](https://github.com/EmaLinuxawy/mlc-llm-tether/actions/workflows/pipeline.yml)
-[![Docker Image](https://img.shields.io/badge/docker-ghcr.io-blue)](https://ghcr.io/EmaLinuxawy/mlc-llm-tether)
+[![CI Pipeline](https://github.com/EmaLinuxawy/mlc-llm/actions/workflows/pipeline.yml/badge.svg)](https://github.com/EmaLinuxawy/mlc-llm/actions/workflows/pipeline.yml)
+[![Docker Image](https://img.shields.io/badge/docker-ghcr.io-blue)](https://ghcr.io/EmaLinuxawy/mlc-llm)
 [![Python](https://img.shields.io/badge/python-3.11-green)](https://python.org)
 
 ## Overview
@@ -22,26 +22,26 @@ This project implements a comprehensive CI/CD pipeline for [MLC-LLM](https://git
 
 ```bash
 # Pull the latest image
-docker pull ghcr.io/EmaLinuxawy/mlc-llm-tether:latest
+docker pull ghcr.io/EmaLinuxawy/mlc-llm:latest
 
 # Development environment
 docker run -it --rm \
   -v $(pwd):/workspace \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether dev
+  ghcr.io/EmaLinuxawy/mlc-llm dev
 
 # CLI usage
-docker run --rm ghcr.io/EmaLinuxawy/mlc-llm-tether --help
+docker run --rm ghcr.io/EmaLinuxawy/mlc-llm --help
 
 # Server mode
 docker run -p 8000:8000 \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether serve --port 8000
+  ghcr.io/EmaLinuxawy/mlc-llm serve --port 8000
 ```
 
 ### Using Python Wheels
 
 ```bash
 # Install from GitHub releases
-pip install https://github.com/EmaLinuxawy/mlc-llm-tether/releases/download/v1.0.0/mlc_llm-*.whl
+pip install https://github.com/EmaLinuxawy/mlc-llm/releases/download/v1.0.0/mlc_llm-*.whl
 
 # Or install compatible TVM first
 pip install --pre -f https://mlc.ai/wheels mlc-ai-nightly-cpu
@@ -134,11 +134,11 @@ Ensure you have the required dependencies:
 
 ```bash
 # Clone repository
-git clone --recursive https://github.com/EmaLinuxawy/mlc-llm-tether.git
-cd mlc-llm-tether
+git clone --recursive https://github.com/EmaLinuxawy/mlc-llm.git
+cd mlc-llm
 
 # Option A: Use Docker (recommended)
-docker run -it --rm -v $(pwd):/workspace ghcr.io/EmaLinuxawy/mlc-llm-tether dev
+docker run -it --rm -v $(pwd):/workspace ghcr.io/EmaLinuxawy/mlc-llm dev
 
 # Option B: Local build (see tether-docs/build-guide.md)
 pip install -r requirements.txt
@@ -149,10 +149,10 @@ pip install -r requirements.txt
 
 ```bash
 # Pull production image
-docker pull ghcr.io/EmaLinuxawy/mlc-llm-tether:latest
+docker pull ghcr.io/EmaLinuxawy/mlc-llm:latest
 
 # Deploy with Docker Compose
-curl -O https://raw.githubusercontent.com/EmaLinuxawy/mlc-llm-tether/main/docker-compose.prod.yml
+curl -O https://raw.githubusercontent.com/EmaLinuxawy/mlc-llm/main/docker-compose.prod.yml
 docker-compose -f docker-compose.prod.yml up -d
 ```
 

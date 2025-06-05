@@ -2,7 +2,7 @@
 
 ## Multipurpose MLC-LLM Docker Image
 
-The Docker image `ghcr.io/EmaLinuxawy/mlc-llm-tether` serves multiple purposes and is automatically built and published via our CI/CD pipeline.
+The Docker image `ghcr.io/EmaLinuxawy/mlc-llm` serves multiple purposes and is automatically built and published via our CI/CD pipeline.
 
 ## Image Overview
 
@@ -25,18 +25,18 @@ The Docker image `ghcr.io/EmaLinuxawy/mlc-llm-tether` serves multiple purposes a
 
 ```bash
 # Interactive development shell
-docker run -it --rm ghcr.io/EmaLinuxawy/mlc-llm-tether dev
+docker run -it --rm ghcr.io/EmaLinuxawy/mlc-llm dev
 
 # Mount your source code for development
 docker run -it --rm \
   -v $(pwd):/workspace \
   -w /workspace \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether dev
+  ghcr.io/EmaLinuxawy/mlc-llm dev
 
 # With GPU support (if available)
 docker run -it --rm --gpus all \
   -v $(pwd):/workspace \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether dev
+  ghcr.io/EmaLinuxawy/mlc-llm dev
 ```
 
 **Features:**
@@ -50,18 +50,18 @@ docker run -it --rm --gpus all \
 
 ```bash
 # Run MLC-LLM CLI commands
-docker run --rm ghcr.io/EmaLinuxawy/mlc-llm-tether --help
+docker run --rm ghcr.io/EmaLinuxawy/mlc-llm --help
 
 # Use the CLI directly
 docker run --rm \
   -v $(pwd)/models:/models \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether chat --model /models/model-name
+  ghcr.io/EmaLinuxawy/mlc-llm chat --model /models/model-name
 
 # Generate model artifacts
 docker run --rm \
   -v $(pwd)/models:/models \
   -v $(pwd)/output:/output \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether gen-config --model /models/input --output /output
+  ghcr.io/EmaLinuxawy/mlc-llm gen-config --model /models/input --output /output
 ```
 
 ### 3. Build Mode
@@ -71,13 +71,13 @@ docker run --rm \
 docker run --rm \
   -v $(pwd):/workspace \
   -w /workspace \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether build --target model
+  ghcr.io/EmaLinuxawy/mlc-llm build --target model
 
 # Compile with custom configurations
 docker run --rm \
   -v $(pwd):/workspace \
   -e CMAKE_BUILD_TYPE=Release \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether build --config custom
+  ghcr.io/EmaLinuxawy/mlc-llm build --config custom
 ```
 
 ### 4. Test Mode
@@ -86,33 +86,33 @@ docker run --rm \
 # Run MLC-LLM tests
 docker run --rm \
   -v $(pwd):/workspace \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether test
+  ghcr.io/EmaLinuxawy/mlc-llm test
 
 # Test with mounted source code
 docker run --rm \
   -v $(pwd):/workspace \
   -w /workspace \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether test
+  ghcr.io/EmaLinuxawy/mlc-llm test
 ```
 
 ### 5. Custom Commands
 
 ```bash
 # Run any Python command
-docker run --rm ghcr.io/EmaLinuxawy/mlc-llm-tether \
+docker run --rm ghcr.io/EmaLinuxawy/mlc-llm \
   python -c "import mlc_llm; print('MLC-LLM imported successfully')"
 
 # Execute shell commands
-docker run --rm ghcr.io/EmaLinuxawy/mlc-llm-tether \
+docker run --rm ghcr.io/EmaLinuxawy/mlc-llm \
   /bin/bash -c "ls -la /workspace"
 
 # Start interactive shell
-docker run -it --rm ghcr.io/EmaLinuxawy/mlc-llm-tether shell
+docker run -it --rm ghcr.io/EmaLinuxawy/mlc-llm shell
 
 # Run Jupyter notebook server
 docker run -p 8888:8888 \
   -v $(pwd):/workspace \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether \
+  ghcr.io/EmaLinuxawy/mlc-llm \
   jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
 ```
 
@@ -129,13 +129,13 @@ docker run -p 8888:8888 \
 
 ```bash
 # Production use
-docker pull ghcr.io/EmaLinuxawy/mlc-llm-tether:latest
+docker pull ghcr.io/EmaLinuxawy/mlc-llm:latest
 
 # Specific version
-docker pull ghcr.io/EmaLinuxawy/mlc-llm-tether:v1.0.0
+docker pull ghcr.io/EmaLinuxawy/mlc-llm:v1.0.0
 
 # Specific commit (for debugging)
-docker pull ghcr.io/EmaLinuxawy/mlc-llm-tether:sha-abc123
+docker pull ghcr.io/EmaLinuxawy/mlc-llm:sha-abc123
 ```
 
 ## Volume Mounts and Data Persistence
@@ -170,7 +170,7 @@ docker run -it --rm \
   -v mlc-cache:/home/developer/.cache \
   -p 8888:8888 \
   -p 8000:8000 \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether dev
+  ghcr.io/EmaLinuxawy/mlc-llm dev
 ```
 
 ## Environment Variables
@@ -211,7 +211,7 @@ docker run -d \
   -e MLC_DEVICE=cpu \
   -e MLC_NUM_THREADS=8 \
   -v $(pwd)/models:/models \
-  ghcr.io/EmaLinuxawy/mlc-llm-tether dev
+  ghcr.io/EmaLinuxawy/mlc-llm dev
 ```
 
 ## CI/CD Integration
